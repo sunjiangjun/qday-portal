@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "abelBridge": "Abel Bridge",
+    "qdayStaking": "QDAY Staking",
+    "abelStaking": "ABEL Staking",
+    "qdaySwap": "QDAY Swap",
+    "trackAddress": "アドレス追跡",
+    "wqdayConversion": "WQDAY 変換",
+    "settings": "設定"
+  },
+  "wallet": {
+    "connect": "ウォレット接続",
+    "disconnect": "切断",
+    "connected": "接続済み",
+    "connecting": "接続中...",
+    "notConnected": "未接続"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "ダッシュボード",
+      "welcome": "Portal V2.1へようこそ",
+      "walletAddress": "ウォレットアドレス",
+      "balance": "残高",
+      "tokenBalances": "トークン残高",
+      "qday": "QDAY",
+      "wqday": "WQDAY",
+      "wabel": "WABEL",
+      "cvxQday": "cvxQDAY",
+      "usd8": "USD8",
+      "abelStaking": "ABEL Staking",
+      "qdayStaking": "QDAY Staking",
+      "rewardVault": "報酬ボルト",
+      "stakedAmount": "ステーキング数量",
+      "totalRewards": "総報酬",
+      "apy": "年間利回り",
+      "pendingRewards": "未受け取り報酬"
+    },
+    "abelBridge": {
+      "title": "Abel Bridge",
+      "description": "クロスチェーンブリッジサービス"
+    },
+    "qdayStaking": {
+      "title": "QDAY Staking",
+      "description": "QDAYトークンをステーキング"
+    },
+    "abelStaking": {
+      "title": "WABEL ステーキング",
+      "description": "WABELトークンをステーキングして報酬を獲得。ロック期間を選択し、ステーキングを簡単に管理できます。",
+      "connectWallet": "続行するにはウォレットを接続してください",
+      "connectTestnet": "QDay テストネットに接続してステーキングを開始",
+      "availableBalance": "利用可能残高",
+      "stakedAmount": "ステーキング数量",
+      "totalRewards": "総報酬",
+      "lockPeriod": "ロック期間",
+      "stakeAmount": "ステーキング数量",
+      "stake": "ステーキング",
+      "unstake": "アンステーキング",
+      "claimRewards": "報酬を受け取る",
+      "days": "日",
+      "weeks": "週",
+      "months": "月",
+      "years": "年",
+      "noStakes": "アクティブなステーキングなし",
+      "activeStakes": "アクティブなステーキング",
+      "daysLeft": "日残り"
+    },
+    "qdaySwap": {
+      "title": "QDAY Swap",
+      "description": "QDAYトークンをスワップ"
+    },
+    "trackAddress": {
+      "title": "アドレス追跡",
+      "description": "ウォレットアドレスの活動を追跡",
+      "enterAddress": "ウォレットアドレスを入力...",
+      "track": "アドレス追跡",
+      "tokenBalances": "トークン残高",
+      "qday": "QDAY",
+      "wqday": "WQDAY",
+      "wabel": "WABEL",
+      "usd8": "USD8",
+      "cvxQday": "cvxQDAY",
+      "rewardBalance": "報酬残高",
+      "loading": "残高を読み込み中...",
+      "noData": "データがありません。アドレスを入力して追跡してください。"
+    },
+    "settings": {
+      "title": "設定",
+      "displaySettings": "表示設定",
+      "hideZeroBalance": "ゼロ残高を非表示",
+      "hideZeroBalanceDescription": "残高が0未満のトークンを非表示にする"
+    }
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功"
+  }
+}
+

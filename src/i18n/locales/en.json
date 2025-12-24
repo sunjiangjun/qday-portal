@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "abelBridge": "Abel Bridge",
+    "qdayStaking": "QDAY Staking",
+    "abelStaking": "ABEL Staking",
+    "qdaySwap": "QDAY Swap",
+    "trackAddress": "Track Address",
+    "wqdayConversion": "WQDAY Conversion",
+    "settings": "Settings"
+  },
+  "wallet": {
+    "connect": "Connect Wallet",
+    "disconnect": "Disconnect",
+    "connected": "Connected",
+    "connecting": "Connecting...",
+    "notConnected": "Not Connected"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome to Portal V2.1",
+      "walletAddress": "Wallet Address",
+      "balance": "Balance",
+      "tokenBalances": "Token Balances",
+      "qday": "QDAY",
+      "wqday": "WQDAY",
+      "wabel": "WABEL",
+      "cvxQday": "cvxQDAY",
+      "usd8": "USD8",
+      "abelStaking": "ABEL Staking",
+      "qdayStaking": "QDAY Staking",
+      "rewardVault": "Reward Vault",
+      "stakedAmount": "Staked Amount",
+      "totalRewards": "Total Rewards",
+      "apy": "APY",
+      "pendingRewards": "Pending Rewards"
+    },
+    "abelBridge": {
+      "title": "Abel Bridge",
+      "description": "Cross-chain bridge service"
+    },
+    "qdayStaking": {
+      "title": "QDAY Staking",
+      "description": "Stake QDAY tokens"
+    },
+    "abelStaking": {
+      "title": "Stake WABEL",
+      "description": "Stake your WABEL tokens to earn rewards. Choose your lock period and manage your stakes easily.",
+      "connectWallet": "Please connect your wallet to continue",
+      "connectTestnet": "Connect to QDay Testnet to start staking",
+      "availableBalance": "Available Balance",
+      "stakedAmount": "Staked Amount",
+      "totalRewards": "Total Rewards",
+      "lockPeriod": "Lock Period",
+      "stakeAmount": "Stake Amount",
+      "stake": "Stake",
+      "unstake": "Unstake",
+      "claimRewards": "Claim Rewards",
+      "days": "days",
+      "weeks": "weeks",
+      "months": "months",
+      "years": "years",
+      "noStakes": "No active stakes",
+      "activeStakes": "Active Stakes",
+      "daysLeft": "days left"
+    },
+    "qdaySwap": {
+      "title": "QDAY Swap",
+      "description": "Swap QDAY tokens"
+    },
+    "trackAddress": {
+      "title": "Track Address",
+      "description": "Track wallet address activity",
+      "enterAddress": "Enter wallet address...",
+      "track": "Track Address",
+      "tokenBalances": "Token Balances",
+      "qday": "QDAY",
+      "wqday": "WQDAY",
+      "wabel": "WABEL",
+      "usd8": "USD8",
+      "cvxQday": "cvxQDAY",
+      "rewardBalance": "Reward Balance",
+      "loading": "Loading balances...",
+      "noData": "No data available. Please enter an address and track it."
+    },
+    "settings": {
+      "title": "Settings",
+      "displaySettings": "Display Settings",
+      "hideZeroBalance": "Hide Zero Balance",
+      "hideZeroBalanceDescription": "Hide tokens with balance less than 0"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  }
+}
+

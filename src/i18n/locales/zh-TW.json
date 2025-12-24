@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "dashboard": "儀表板",
+    "abelBridge": "Abel Bridge",
+    "qdayStaking": "QDAY Staking",
+    "abelStaking": "ABEL Staking",
+    "qdaySwap": "QDAY Swap",
+    "trackAddress": "追蹤地址",
+    "wqdayConversion": "WQDAY 轉換",
+    "settings": "設定"
+  },
+  "wallet": {
+    "connect": "連接錢包",
+    "disconnect": "斷開連接",
+    "connected": "已連接",
+    "connecting": "連接中...",
+    "notConnected": "未連接"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "儀表板",
+      "welcome": "歡迎使用 Portal V2.1",
+      "walletAddress": "錢包地址",
+      "balance": "餘額",
+      "tokenBalances": "代幣餘額",
+      "qday": "QDAY",
+      "wqday": "WQDAY",
+      "wabel": "WABEL",
+      "cvxQday": "cvxQDAY",
+      "usd8": "USD8",
+      "abelStaking": "ABEL Staking",
+      "qdayStaking": "QDAY Staking",
+      "rewardVault": "獎勵金庫",
+      "stakedAmount": "質押數量",
+      "totalRewards": "總獎勵",
+      "apy": "年化收益率",
+      "pendingRewards": "待領取獎勵"
+    },
+    "abelBridge": {
+      "title": "Abel Bridge",
+      "description": "跨鏈橋接服務"
+    },
+    "qdayStaking": {
+      "title": "QDAY Staking",
+      "description": "質押 QDAY 代幣"
+    },
+    "abelStaking": {
+      "title": "質押 WABEL",
+      "description": "質押您的 WABEL 代幣以獲得獎勵。選擇鎖定期並輕鬆管理您的質押。",
+      "connectWallet": "請連接您的錢包以繼續",
+      "connectTestnet": "連接到 QDay 測試網以開始質押",
+      "availableBalance": "可用餘額",
+      "stakedAmount": "質押數量",
+      "totalRewards": "總獎勵",
+      "lockPeriod": "鎖定期",
+      "stakeAmount": "質押數量",
+      "stake": "質押",
+      "unstake": "取消質押",
+      "claimRewards": "領取獎勵",
+      "days": "天",
+      "weeks": "週",
+      "months": "月",
+      "years": "年",
+      "noStakes": "沒有活躍的質押",
+      "activeStakes": "活躍質押",
+      "daysLeft": "天剩餘"
+    },
+    "qdaySwap": {
+      "title": "QDAY Swap",
+      "description": "交換 QDAY 代幣"
+    },
+    "trackAddress": {
+      "title": "追蹤地址",
+      "description": "追蹤錢包地址活動",
+      "enterAddress": "輸入錢包地址...",
+      "track": "追蹤地址",
+      "tokenBalances": "代幣餘額",
+      "qday": "QDAY",
+      "wqday": "WQDAY",
+      "wabel": "WABEL",
+      "usd8": "USD8",
+      "cvxQday": "cvxQDAY",
+      "rewardBalance": "獎勵餘額",
+      "loading": "載入餘額中...",
+      "noData": "無可用數據。請輸入地址並追蹤。"
+    },
+    "settings": {
+      "title": "設定",
+      "displaySettings": "顯示設定",
+      "hideZeroBalance": "隱藏零餘額",
+      "hideZeroBalanceDescription": "隱藏餘額小於 0 的代幣"
+    }
+  },
+  "common": {
+    "loading": "載入中...",
+    "error": "錯誤",
+    "success": "成功"
+  }
+}
+
