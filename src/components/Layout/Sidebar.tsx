@@ -1,6 +1,7 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useWalletStore } from '../../store/walletStore';
+import { useState } from 'react';
 import {
   LayoutDashboard,
   GitBranch,
@@ -9,6 +10,9 @@ import {
   Search,
   RefreshCw,
   Settings,
+  FileText,
+  ChevronDown,
+  ChevronRight,
   X,
 } from 'lucide-react';
 
@@ -20,6 +24,10 @@ interface SidebarProps {
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const { t } = useTranslation();
   const { isConnected } = useWalletStore();
+  const location = useLocation();
+  const [docsOpen, setDocsOpen] = useState(
+    location.pathname.startsWith('/docs')
+  );
 
   const menuItems = [
     ...(isConnected
@@ -42,14 +50,9 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       label: t('nav.abelBridge'),
     },
     {
-      path: '/qday-staking',
+      path: '/staking',
       icon: Coins,
-      label: t('nav.qdayStaking'),
-    },
-    {
-      path: '/abel-staking',
-      icon: Coins,
-      label: t('nav.abelStaking'),
+      label: t('nav.staking'),
     },
     {
       path: '/qday-swap',
@@ -61,10 +64,20 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       icon: RefreshCw,
       label: t('nav.wqdayConversion'),
     },
+  ];
+
+  const docsSubItems = [
     {
-      path: '/settings',
-      icon: Settings,
-      label: t('nav.settings'),
+      path: '/docs/staking',
+      label: t('nav.docs.staking'),
+    },
+    {
+      path: '/docs/abel-bridge',
+      label: t('nav.docs.abelBridge'),
+    },
+    {
+      path: '/docs/qday-swap',
+      label: t('nav.docs.qdaySwap'),
     },
   ];
 
@@ -138,6 +151,67 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                 </NavLink>
               );
             })}
+
+            {/* Docs 菜单（带子菜单） */}
+            <div>
+              <button
+                onClick={() => setDocsOpen(!docsOpen)}
+                className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                  location.pathname.startsWith('/docs')
+                    ? 'bg-primary-600/20 text-primary-400'
+                    : 'text-dark-300 hover:bg-dark-800 hover:text-primary-400'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <FileText className="w-5 h-5 flex-shrink-0" />
+                  <span className="font-medium">{t('nav.docs.title')}</span>
+                </div>
+                {docsOpen ? (
+                  <ChevronDown className="w-4 h-4 flex-shrink-0" />
+                ) : (
+                  <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                )}
+              </button>
+
+              {docsOpen && (
+                <div className="ml-4 mt-2 space-y-1 border-l-2 border-dark-700 pl-2">
+                  {docsSubItems.map((subItem) => {
+                    return (
+                      <NavLink
+                        key={subItem.path}
+                        to={subItem.path}
+                        onClick={onClose}
+                        className={({ isActive }) =>
+                          `flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 text-sm ${
+                            isActive
+                              ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/50'
+                              : 'text-dark-400 hover:bg-dark-800 hover:text-dark-200'
+                          }`
+                        }
+                      >
+                        <span>{subItem.label}</span>
+                      </NavLink>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Settings 菜单项 */}
+            <NavLink
+              to="/settings"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                  isActive
+                    ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/50'
+                    : 'text-dark-300 hover:bg-dark-800 hover:text-primary-400'
+                }`
+              }
+            >
+              <Settings className="w-5 h-5 flex-shrink-0" />
+              <span className="font-medium">{t('nav.settings')}</span>
+            </NavLink>
           </div>
         </nav>
 

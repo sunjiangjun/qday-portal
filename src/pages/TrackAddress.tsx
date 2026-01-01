@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Search, Coins, Loader2 } from 'lucide-react';
+import { Search, Coins, Loader2, HelpCircle, X } from 'lucide-react';
 import { useState } from 'react';
 
 interface TokenBalance {
@@ -10,6 +10,91 @@ interface TokenBalance {
   cvxQday: string;
   rewardBalance: string;
 }
+
+interface HelpDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  content: string;
+}
+
+const HelpDialog = ({ isOpen, onClose, title, content }: HelpDialogProps) => {
+  if (!isOpen) return null;
+
+  return (
+    <>
+      {/* 遮罩层 */}
+      <div
+        className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        {/* 对话框 */}
+        <div
+          className="bg-dark-900 rounded-xl border border-dark-700 shadow-2xl max-w-md w-full p-6"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-white">{title}</h3>
+            <button
+              onClick={onClose}
+              className="p-1 text-dark-400 hover:text-white hover:bg-dark-800 rounded-lg transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <p className="text-dark-300 leading-relaxed">{content}</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+interface TokenBalanceCardProps {
+  label: string;
+  value: string;
+  helpKey?: string;
+  t: (key: string) => string;
+  isReward?: boolean;
+}
+
+const TokenBalanceCard = ({ label, value, helpKey, t, isReward }: TokenBalanceCardProps) => {
+  const [showHelp, setShowHelp] = useState(false);
+
+  return (
+    <>
+      <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700 relative">
+        <div className="flex items-start justify-between mb-2">
+          <p className="text-dark-400 text-xs lg:text-sm">
+            {label}
+          </p>
+          {helpKey && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowHelp(true);
+              }}
+              className="p-0.5 text-dark-500 hover:text-primary-400 transition-colors flex-shrink-0 ml-1"
+              aria-label="Help"
+            >
+              <HelpCircle className="w-3 h-3 lg:w-4 lg:h-4" />
+            </button>
+          )}
+        </div>
+        <p className={`font-mono text-lg lg:text-xl font-bold break-all ${isReward ? 'text-primary-400' : 'text-white'}`}>
+          {value}
+        </p>
+      </div>
+      {helpKey && (
+        <HelpDialog
+          isOpen={showHelp}
+          onClose={() => setShowHelp(false)}
+          title={label}
+          content={t(`pages.trackAddress.help.${helpKey}`)}
+        />
+      )}
+    </>
+  );
+};
 
 const TrackAddress = () => {
   const { t } = useTranslation();
@@ -101,59 +186,39 @@ const TrackAddress = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-            <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700">
-              <p className="text-dark-400 text-xs lg:text-sm mb-2">
-                {t('pages.trackAddress.qday')}
-              </p>
-              <p className="text-white font-mono text-lg lg:text-xl font-bold break-all">
-                {balances.qday}
-              </p>
-            </div>
-
-            <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700">
-              <p className="text-dark-400 text-xs lg:text-sm mb-2">
-                {t('pages.trackAddress.wqday')}
-              </p>
-              <p className="text-white font-mono text-lg lg:text-xl font-bold break-all">
-                {balances.wqday}
-              </p>
-            </div>
-
-            <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700">
-              <p className="text-dark-400 text-xs lg:text-sm mb-2">
-                {t('pages.trackAddress.wabel')}
-              </p>
-              <p className="text-white font-mono text-lg lg:text-xl font-bold break-all">
-                {balances.wabel}
-              </p>
-            </div>
-
-            <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700">
-              <p className="text-dark-400 text-xs lg:text-sm mb-2">
-                {t('pages.trackAddress.usd8')}
-              </p>
-              <p className="text-white font-mono text-lg lg:text-xl font-bold break-all">
-                {balances.usd8}
-              </p>
-            </div>
-
-            <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700">
-              <p className="text-dark-400 text-xs lg:text-sm mb-2">
-                {t('pages.trackAddress.cvxQday')}
-              </p>
-              <p className="text-white font-mono text-lg lg:text-xl font-bold break-all">
-                {balances.cvxQday}
-              </p>
-            </div>
-
-            <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700">
-              <p className="text-dark-400 text-xs lg:text-sm mb-2">
-                {t('pages.trackAddress.rewardBalance')}
-              </p>
-              <p className="text-primary-400 font-mono text-lg lg:text-xl font-bold break-all">
-                {balances.rewardBalance}
-              </p>
-            </div>
+            <TokenBalanceCard
+              label={t('pages.trackAddress.qday')}
+              value={balances.qday}
+              t={t}
+            />
+            <TokenBalanceCard
+              label={t('pages.trackAddress.wqday')}
+              value={balances.wqday}
+              t={t}
+            />
+            <TokenBalanceCard
+              label={t('pages.trackAddress.wabel')}
+              value={balances.wabel}
+              t={t}
+            />
+            <TokenBalanceCard
+              label={t('pages.trackAddress.usd8')}
+              value={balances.usd8}
+              t={t}
+            />
+            <TokenBalanceCard
+              label={t('pages.trackAddress.cvxQday')}
+              value={balances.cvxQday}
+              helpKey="cvxQday"
+              t={t}
+            />
+            <TokenBalanceCard
+              label={t('pages.trackAddress.rewardBalance')}
+              value={balances.rewardBalance}
+              helpKey="rewardBalance"
+              t={t}
+              isReward={true}
+            />
           </div>
         </div>
       )}

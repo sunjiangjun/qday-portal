@@ -2,12 +2,17 @@
   "nav": {
     "dashboard": "Dashboard",
     "abelBridge": "Abel Bridge",
-    "qdayStaking": "QDAY Staking",
-    "abelStaking": "ABEL Staking",
+    "staking": "Staking",
     "qdaySwap": "QDAY Swap",
     "trackAddress": "Track Address",
     "wqdayConversion": "WQDAY Conversion",
-    "settings": "Settings"
+    "settings": "Settings",
+    "docs": {
+      "title": "Docs",
+      "staking": "Staking",
+      "abelBridge": "Abel Bridge",
+      "qdaySwap": "QDAY Swap"
+    }
   },
   "wallet": {
     "connect": "Connect Wallet",
@@ -34,15 +39,32 @@
       "stakedAmount": "Staked Amount",
       "totalRewards": "Total Rewards",
       "apy": "APY",
-      "pendingRewards": "Pending Rewards"
+      "pendingRewards": "Pending Rewards",
+      "help": {
+        "tokenBalances": "Token Balances shows the current balance of all your tokens in your wallet.",
+        "qday": "QDAY is the native token of the QDay network.",
+        "wqday": "WQDAY is the wrapped version of QDAY token.",
+        "wabel": "WABEL is the wrapped version of ABEL token used for staking.",
+        "cvxQday": "cvxQDAY represents your staked QDAY tokens in a convex pool.",
+        "usd8": "USD8 is a stablecoin pegged to USD.",
+        "stakedAmount": "Staked Amount shows the total amount of tokens you have locked in the staking pool.",
+        "totalRewards": "Total Rewards displays the cumulative rewards you have earned from staking.",
+        "apy": "APY (Annual Percentage Yield) shows the estimated annual return rate for staking.",
+        "pendingRewards": "Pending Rewards are rewards that have been earned but not yet claimed.",
+        "rewardVault": "Reward Vault contains the accumulated rewards available for distribution."
+      }
     },
     "abelBridge": {
       "title": "Abel Bridge",
       "description": "Cross-chain bridge service"
     },
-    "qdayStaking": {
-      "title": "QDAY Staking",
-      "description": "Stake QDAY tokens"
+    "staking": {
+      "title": "Stake",
+      "description": "Stake your tokens to earn rewards",
+      "stakeWABEL": "Stake WABEL",
+      "stakeQDAY": "Stake QDAY",
+      "selectToken": "Select Token",
+      "myStaking": "My Staking"
     },
     "abelStaking": {
       "title": "Stake WABEL",
@@ -61,9 +83,27 @@
       "weeks": "weeks",
       "months": "months",
       "years": "years",
+      "year": "year",
       "noStakes": "No active stakes",
       "activeStakes": "Active Stakes",
-      "daysLeft": "days left"
+      "daysLeft": "days left",
+      "extendLockPeriod": "Extend Lock Period",
+      "addStakeAmount": "Add Stake Amount",
+      "pendingRewards": "Pending Rewards",
+      "abelStaking": "ABEL Staking",
+      "qdayStaking": "QDAY Staking",
+      "totalPendingRewards": "Total Pending Rewards",
+      "extendDays": "Extend Days",
+      "addAmount": "Add Amount",
+      "claimAmount": "Claim Amount",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "enterExtendDays": "Enter extend days",
+      "enterAddAmount": "Enter add amount",
+      "enterClaimAmount": "Enter claim amount (QDAY)",
+      "help": {
+        "totalPendingRewards": "Total Pending Rewards shows the sum of all unclaimed rewards from both WABEL and QDAY staking activities, displayed in QDAY equivalent."
+      }
     },
     "qdaySwap": {
       "title": "QDAY Swap",
@@ -82,13 +122,31 @@
       "cvxQday": "cvxQDAY",
       "rewardBalance": "Reward Balance",
       "loading": "Loading balances...",
-      "noData": "No data available. Please enter an address and track it."
+      "noData": "No data available. Please enter an address and track it.",
+      "help": {
+        "cvxQday": "cvxQDAY represents your staked QDAY tokens in a convex pool. This shows the amount of QDAY you have locked in convex staking.",
+        "rewardBalance": "Reward Balance shows the total rewards accumulated for this wallet address from all staking activities."
+      }
     },
     "settings": {
       "title": "Settings",
       "displaySettings": "Display Settings",
       "hideZeroBalance": "Hide Zero Balance",
       "hideZeroBalanceDescription": "Hide tokens with balance less than 0"
+    },
+    "docs": {
+      "staking": {
+        "title": "Staking Documentation",
+        "content": "Staking Documentation"
+      },
+      "abelBridge": {
+        "title": "Abel Bridge Documentation",
+        "content": "Abel Bridge Documentation"
+      },
+      "qdaySwap": {
+        "title": "QDAY Swap Documentation",
+        "content": "QDAY Swap Documentation"
+      }
     }
   },
   "common": {

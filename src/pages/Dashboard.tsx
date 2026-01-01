@@ -1,10 +1,130 @@
 import { useTranslation } from 'react-i18next';
 import { useWalletStore } from '../store/walletStore';
-import { Wallet, Coins, Lock, Gift } from 'lucide-react';
+import { Wallet, Coins, Lock, Gift, HelpCircle, X } from 'lucide-react';
+import { useState } from 'react';
+
+interface HelpDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  content: string;
+}
+
+const HelpDialog = ({ isOpen, onClose, title, content }: HelpDialogProps) => {
+  if (!isOpen) return null;
+
+  return (
+    <>
+      {/* 遮罩层 */}
+      <div
+        className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        {/* 对话框 */}
+        <div
+          className="bg-dark-900 rounded-xl border border-dark-700 shadow-2xl max-w-md w-full p-6"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-white">{title}</h3>
+            <button
+              onClick={onClose}
+              className="p-1 text-dark-400 hover:text-white hover:bg-dark-800 rounded-lg transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <p className="text-dark-300 leading-relaxed">{content}</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+interface FieldWithHelpProps {
+  label: string;
+  value: React.ReactNode;
+  helpKey: string;
+  t: (key: string) => string;
+}
+
+const FieldWithHelp = ({ label, value, helpKey, t }: FieldWithHelpProps) => {
+  const [showHelp, setShowHelp] = useState(false);
+
+  return (
+    <>
+      <div className="flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <p className="text-dark-400 text-sm lg:text-base">{label}</p>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowHelp(true);
+            }}
+            className="p-0.5 text-dark-500 hover:text-primary-400 transition-colors"
+            aria-label="Help"
+          >
+            <HelpCircle className="w-4 h-4" />
+          </button>
+        </div>
+        <div className="ml-2">{value}</div>
+      </div>
+      <HelpDialog
+        isOpen={showHelp}
+        onClose={() => setShowHelp(false)}
+        title={label}
+        content={t(`pages.dashboard.help.${helpKey}`)}
+      />
+    </>
+  );
+};
+
+interface TokenBalanceCardProps {
+  tokenKey: string;
+  value: string;
+  t: (key: string) => string;
+}
+
+const TokenBalanceCard = ({ tokenKey, value, t }: TokenBalanceCardProps) => {
+  const [showHelp, setShowHelp] = useState(false);
+
+  return (
+    <>
+      <div className="bg-dark-800 rounded-lg p-3 lg:p-4 border border-dark-700 relative">
+        <div className="flex items-start justify-between mb-1">
+          <p className="text-dark-400 text-xs lg:text-sm">
+            {t(`pages.dashboard.${tokenKey}`)}
+          </p>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowHelp(true);
+            }}
+            className="p-0.5 text-dark-500 hover:text-primary-400 transition-colors flex-shrink-0"
+            aria-label="Help"
+          >
+            <HelpCircle className="w-3 h-3 lg:w-4 lg:h-4" />
+          </button>
+        </div>
+        <p className="text-white font-mono text-sm lg:text-base font-bold">
+          {value}
+        </p>
+      </div>
+      <HelpDialog
+        isOpen={showHelp}
+        onClose={() => setShowHelp(false)}
+        title={t(`pages.dashboard.${tokenKey}`)}
+        content={t(`pages.dashboard.help.${tokenKey}`)}
+      />
+    </>
+  );
+};
 
 const Dashboard = () => {
   const { t } = useTranslation();
   const { address, isConnected } = useWalletStore();
+  const [showTokenBalancesHelp, setShowTokenBalancesHelp] = useState(false);
+  const [showRewardVaultHelp, setShowRewardVaultHelp] = useState(false);
 
   // 模拟数据
   const tokenBalances = {
@@ -76,49 +196,25 @@ const Dashboard = () => {
           <h2 className="text-lg lg:text-xl font-bold text-white">
             {t('pages.dashboard.tokenBalances')}
           </h2>
+          <button
+            onClick={() => setShowTokenBalancesHelp(true)}
+            className="p-1 text-dark-500 hover:text-primary-400 transition-colors"
+            aria-label="Help"
+          >
+            <HelpCircle className="w-4 h-4 lg:w-5 lg:h-5" />
+          </button>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
-          <div className="bg-dark-800 rounded-lg p-3 lg:p-4 border border-dark-700">
-            <p className="text-dark-400 text-xs lg:text-sm mb-1">
-              {t('pages.dashboard.qday')}
-            </p>
-            <p className="text-white font-mono text-sm lg:text-base font-bold">
-              {tokenBalances.qday}
-            </p>
-          </div>
-          <div className="bg-dark-800 rounded-lg p-3 lg:p-4 border border-dark-700">
-            <p className="text-dark-400 text-xs lg:text-sm mb-1">
-              {t('pages.dashboard.wqday')}
-            </p>
-            <p className="text-white font-mono text-sm lg:text-base font-bold">
-              {tokenBalances.wqday}
-            </p>
-          </div>
-          <div className="bg-dark-800 rounded-lg p-3 lg:p-4 border border-dark-700">
-            <p className="text-dark-400 text-xs lg:text-sm mb-1">
-              {t('pages.dashboard.wabel')}
-            </p>
-            <p className="text-white font-mono text-sm lg:text-base font-bold">
-              {tokenBalances.wabel}
-            </p>
-          </div>
-          <div className="bg-dark-800 rounded-lg p-3 lg:p-4 border border-dark-700">
-            <p className="text-dark-400 text-xs lg:text-sm mb-1">
-              {t('pages.dashboard.cvxQday')}
-            </p>
-            <p className="text-white font-mono text-sm lg:text-base font-bold">
-              {tokenBalances.cvxQday}
-            </p>
-          </div>
-          <div className="bg-dark-800 rounded-lg p-3 lg:p-4 border border-dark-700">
-            <p className="text-dark-400 text-xs lg:text-sm mb-1">
-              {t('pages.dashboard.usd8')}
-            </p>
-            <p className="text-white font-mono text-sm lg:text-base font-bold">
-              {tokenBalances.usd8}
-            </p>
-          </div>
+          {Object.entries(tokenBalances).map(([key, value]) => (
+            <TokenBalanceCard key={key} tokenKey={key} value={value} t={t} />
+          ))}
         </div>
+        <HelpDialog
+          isOpen={showTokenBalancesHelp}
+          onClose={() => setShowTokenBalancesHelp(false)}
+          title={t('pages.dashboard.tokenBalances')}
+          content={t('pages.dashboard.help.tokenBalances')}
+        />
       </div>
 
       {/* Staking 数据 */}
@@ -134,37 +230,47 @@ const Dashboard = () => {
             </h2>
           </div>
           <div className="space-y-3 lg:space-y-4">
-            <div className="flex justify-between items-center">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.stakedAmount')}
-              </p>
-              <p className="text-white font-mono text-sm lg:text-base font-bold">
-                {abelStaking.stakedAmount} WABEL
-              </p>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.totalRewards')}
-              </p>
-              <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
-                {abelStaking.totalRewards} WABEL
-              </p>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.apy')}
-              </p>
-              <p className="text-white font-mono text-sm lg:text-base font-bold">
-                {abelStaking.apy}
-              </p>
-            </div>
-            <div className="flex justify-between items-center pt-2 border-t border-dark-700">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.pendingRewards')}
-              </p>
-              <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
-                {abelStaking.pendingRewards} WABEL
-              </p>
+            <FieldWithHelp
+              label={t('pages.dashboard.stakedAmount')}
+              value={
+                <p className="text-white font-mono text-sm lg:text-base font-bold">
+                  {abelStaking.stakedAmount} WABEL
+                </p>
+              }
+              helpKey="stakedAmount"
+              t={t}
+            />
+            <FieldWithHelp
+              label={t('pages.dashboard.totalRewards')}
+              value={
+                <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
+                  {abelStaking.totalRewards} WABEL
+                </p>
+              }
+              helpKey="totalRewards"
+              t={t}
+            />
+            <FieldWithHelp
+              label={t('pages.dashboard.apy')}
+              value={
+                <p className="text-white font-mono text-sm lg:text-base font-bold">
+                  {abelStaking.apy}
+                </p>
+              }
+              helpKey="apy"
+              t={t}
+            />
+            <div className="pt-2 border-t border-dark-700">
+              <FieldWithHelp
+                label={t('pages.dashboard.pendingRewards')}
+                value={
+                  <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
+                    {abelStaking.pendingRewards} WABEL
+                  </p>
+                }
+                helpKey="pendingRewards"
+                t={t}
+              />
             </div>
           </div>
         </div>
@@ -180,37 +286,47 @@ const Dashboard = () => {
             </h2>
           </div>
           <div className="space-y-3 lg:space-y-4">
-            <div className="flex justify-between items-center">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.stakedAmount')}
-              </p>
-              <p className="text-white font-mono text-sm lg:text-base font-bold">
-                {qdayStaking.stakedAmount} QDAY
-              </p>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.totalRewards')}
-              </p>
-              <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
-                {qdayStaking.totalRewards} QDAY
-              </p>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.apy')}
-              </p>
-              <p className="text-white font-mono text-sm lg:text-base font-bold">
-                {qdayStaking.apy}
-              </p>
-            </div>
-            <div className="flex justify-between items-center pt-2 border-t border-dark-700">
-              <p className="text-dark-400 text-sm lg:text-base">
-                {t('pages.dashboard.pendingRewards')}
-              </p>
-              <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
-                {qdayStaking.pendingRewards} QDAY
-              </p>
+            <FieldWithHelp
+              label={t('pages.dashboard.stakedAmount')}
+              value={
+                <p className="text-white font-mono text-sm lg:text-base font-bold">
+                  {qdayStaking.stakedAmount} QDAY
+                </p>
+              }
+              helpKey="stakedAmount"
+              t={t}
+            />
+            <FieldWithHelp
+              label={t('pages.dashboard.totalRewards')}
+              value={
+                <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
+                  {qdayStaking.totalRewards} QDAY
+                </p>
+              }
+              helpKey="totalRewards"
+              t={t}
+            />
+            <FieldWithHelp
+              label={t('pages.dashboard.apy')}
+              value={
+                <p className="text-white font-mono text-sm lg:text-base font-bold">
+                  {qdayStaking.apy}
+                </p>
+              }
+              helpKey="apy"
+              t={t}
+            />
+            <div className="pt-2 border-t border-dark-700">
+              <FieldWithHelp
+                label={t('pages.dashboard.pendingRewards')}
+                value={
+                  <p className="text-primary-400 font-mono text-sm lg:text-base font-bold">
+                    {qdayStaking.pendingRewards} QDAY
+                  </p>
+                }
+                helpKey="pendingRewards"
+                t={t}
+              />
             </div>
           </div>
         </div>
@@ -225,6 +341,13 @@ const Dashboard = () => {
           <h2 className="text-lg lg:text-xl font-bold text-white">
             {t('pages.dashboard.rewardVault')}
           </h2>
+          <button
+            onClick={() => setShowRewardVaultHelp(true)}
+            className="p-1 text-dark-500 hover:text-primary-400 transition-colors"
+            aria-label="Help"
+          >
+            <HelpCircle className="w-4 h-4 lg:w-5 lg:h-5" />
+          </button>
         </div>
         <div className="bg-dark-800 rounded-lg p-4 lg:p-6 border border-dark-700">
           <div className="flex justify-between items-center">
@@ -236,6 +359,12 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
+        <HelpDialog
+          isOpen={showRewardVaultHelp}
+          onClose={() => setShowRewardVaultHelp(false)}
+          title={t('pages.dashboard.rewardVault')}
+          content={t('pages.dashboard.help.rewardVault')}
+        />
       </div>
     </div>
   );

@@ -2,12 +2,17 @@
   "nav": {
     "dashboard": "儀表板",
     "abelBridge": "Abel Bridge",
-    "qdayStaking": "QDAY Staking",
-    "abelStaking": "ABEL Staking",
+    "staking": "質押",
     "qdaySwap": "QDAY Swap",
     "trackAddress": "追蹤地址",
     "wqdayConversion": "WQDAY 轉換",
-    "settings": "設定"
+    "settings": "設定",
+    "docs": {
+      "title": "文件",
+      "staking": "質押",
+      "abelBridge": "Abel Bridge",
+      "qdaySwap": "QDAY Swap"
+    }
   },
   "wallet": {
     "connect": "連接錢包",
@@ -34,15 +39,32 @@
       "stakedAmount": "質押數量",
       "totalRewards": "總獎勵",
       "apy": "年化收益率",
-      "pendingRewards": "待領取獎勵"
+      "pendingRewards": "待領取獎勵",
+      "help": {
+        "tokenBalances": "代幣餘額顯示您錢包中所有代幣的當前餘額。",
+        "qday": "QDAY 是 QDay 網絡的原生代幣。",
+        "wqday": "WQDAY 是 QDAY 代幣的包裝版本。",
+        "wabel": "WABEL 是用於質押的 ABEL 代幣的包裝版本。",
+        "cvxQday": "cvxQDAY 代表您在凸性池中質押的 QDAY 代幣。",
+        "usd8": "USD8 是與美元掛鉤的穩定幣。",
+        "stakedAmount": "質押數量顯示您鎖定在質押池中的代幣總量。",
+        "totalRewards": "總獎勵顯示您從質押中獲得的累計獎勵。",
+        "apy": "年化收益率（APY）顯示質押的預估年回報率。",
+        "pendingRewards": "待領取獎勵是已獲得但尚未領取的獎勵。",
+        "rewardVault": "獎勵金庫包含可供分配的累積獎勵。"
+      }
     },
     "abelBridge": {
       "title": "Abel Bridge",
       "description": "跨鏈橋接服務"
     },
-    "qdayStaking": {
-      "title": "QDAY Staking",
-      "description": "質押 QDAY 代幣"
+    "staking": {
+      "title": "質押",
+      "description": "質押您的代幣以獲得獎勵",
+      "stakeWABEL": "質押 WABEL",
+      "stakeQDAY": "質押 QDAY",
+      "selectToken": "選擇代幣",
+      "myStaking": "我的質押"
     },
     "abelStaking": {
       "title": "質押 WABEL",
@@ -61,9 +83,27 @@
       "weeks": "週",
       "months": "月",
       "years": "年",
+      "year": "年",
       "noStakes": "沒有活躍的質押",
       "activeStakes": "活躍質押",
-      "daysLeft": "天剩餘"
+      "daysLeft": "天剩餘",
+      "extendLockPeriod": "延長鎖定期",
+      "addStakeAmount": "追加質押金額",
+      "pendingRewards": "待領取獎勵",
+      "abelStaking": "ABEL 質押",
+      "qdayStaking": "QDAY 質押",
+      "totalPendingRewards": "總待領取獎勵",
+      "extendDays": "延長天數",
+      "addAmount": "追加金額",
+      "claimAmount": "領取金額",
+      "confirm": "確認",
+      "cancel": "取消",
+      "enterExtendDays": "輸入延長天數",
+      "enterAddAmount": "輸入追加金額",
+      "enterClaimAmount": "輸入領取金額（QDAY）",
+      "help": {
+        "totalPendingRewards": "總待領取獎勵顯示從 WABEL 和 QDAY 質押活動中所有未領取的獎勵總和，以 QDAY 等值顯示。"
+      }
     },
     "qdaySwap": {
       "title": "QDAY Swap",
@@ -82,13 +122,31 @@
       "cvxQday": "cvxQDAY",
       "rewardBalance": "獎勵餘額",
       "loading": "載入餘額中...",
-      "noData": "無可用數據。請輸入地址並追蹤。"
+      "noData": "無可用數據。請輸入地址並追蹤。",
+      "help": {
+        "cvxQday": "cvxQDAY 代表您在凸性池中質押的 QDAY 代幣。這顯示您在凸性質押中鎖定的 QDAY 數量。",
+        "rewardBalance": "獎勵餘額顯示此錢包地址從所有質押活動中累積的總獎勵。"
+      }
     },
     "settings": {
       "title": "設定",
       "displaySettings": "顯示設定",
       "hideZeroBalance": "隱藏零餘額",
       "hideZeroBalanceDescription": "隱藏餘額小於 0 的代幣"
+    },
+    "docs": {
+      "staking": {
+        "title": "質押文件",
+        "content": "質押文件"
+      },
+      "abelBridge": {
+        "title": "Abel Bridge 文件",
+        "content": "Abel Bridge 文件"
+      },
+      "qdaySwap": {
+        "title": "QDAY Swap 文件",
+        "content": "QDAY Swap 文件"
+      }
     }
   },
   "common": {

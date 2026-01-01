@@ -2,12 +2,17 @@
   "nav": {
     "dashboard": "ダッシュボード",
     "abelBridge": "Abel Bridge",
-    "qdayStaking": "QDAY Staking",
-    "abelStaking": "ABEL Staking",
+    "staking": "ステーキング",
     "qdaySwap": "QDAY Swap",
     "trackAddress": "アドレス追跡",
     "wqdayConversion": "WQDAY 変換",
-    "settings": "設定"
+    "settings": "設定",
+    "docs": {
+      "title": "ドキュメント",
+      "staking": "ステーキング",
+      "abelBridge": "Abel Bridge",
+      "qdaySwap": "QDAY Swap"
+    }
   },
   "wallet": {
     "connect": "ウォレット接続",
@@ -34,15 +39,32 @@
       "stakedAmount": "ステーキング数量",
       "totalRewards": "総報酬",
       "apy": "年間利回り",
-      "pendingRewards": "未受け取り報酬"
+      "pendingRewards": "未受け取り報酬",
+      "help": {
+        "tokenBalances": "トークン残高は、ウォレット内のすべてのトークンの現在の残高を表示します。",
+        "qday": "QDAY は QDay ネットワークのネイティブトークンです。",
+        "wqday": "WQDAY は QDAY トークンのラップバージョンです。",
+        "wabel": "WABEL はステーキングに使用される ABEL トークンのラップバージョンです。",
+        "cvxQday": "cvxQDAY は、コンベックスプールでステーキングされた QDAY トークンを表します。",
+        "usd8": "USD8 は米ドルにペッグされたステーブルコインです。",
+        "stakedAmount": "ステーキング数量は、ステーキングプールにロックしたトークンの総量を表示します。",
+        "totalRewards": "総報酬は、ステーキングから獲得した累積報酬を表示します。",
+        "apy": "年間利回り（APY）は、ステーキングの推定年間リターン率を表示します。",
+        "pendingRewards": "未受け取り報酬は、獲得したがまだ請求されていない報酬です。",
+        "rewardVault": "報酬ボルトには、配布可能な累積報酬が含まれています。"
+      }
     },
     "abelBridge": {
       "title": "Abel Bridge",
       "description": "クロスチェーンブリッジサービス"
     },
-    "qdayStaking": {
-      "title": "QDAY Staking",
-      "description": "QDAYトークンをステーキング"
+    "staking": {
+      "title": "ステーク",
+      "description": "トークンをステーキングして報酬を獲得",
+      "stakeWABEL": "WABEL ステーキング",
+      "stakeQDAY": "QDAY ステーキング",
+      "selectToken": "トークンを選択",
+      "myStaking": "マイステーキング"
     },
     "abelStaking": {
       "title": "WABEL ステーキング",
@@ -61,9 +83,27 @@
       "weeks": "週",
       "months": "月",
       "years": "年",
+      "year": "年",
       "noStakes": "アクティブなステーキングなし",
       "activeStakes": "アクティブなステーキング",
-      "daysLeft": "日残り"
+      "daysLeft": "日残り",
+      "extendLockPeriod": "ロック期間延長",
+      "addStakeAmount": "ステーキング数量追加",
+      "pendingRewards": "未受け取り報酬",
+      "abelStaking": "ABEL ステーキング",
+      "qdayStaking": "QDAY ステーキング",
+      "totalPendingRewards": "総未受け取り報酬",
+      "extendDays": "延長日数",
+      "addAmount": "追加数量",
+      "claimAmount": "受け取り数量",
+      "confirm": "確認",
+      "cancel": "キャンセル",
+      "enterExtendDays": "延長日数を入力",
+      "enterAddAmount": "追加数量を入力",
+      "enterClaimAmount": "受け取り数量を入力（QDAY）",
+      "help": {
+        "totalPendingRewards": "総未受け取り報酬は、WABEL と QDAY のステーキング活動から未請求のすべての報酬の合計を表示し、QDAY 等価で表示されます。"
+      }
     },
     "qdaySwap": {
       "title": "QDAY Swap",
@@ -82,13 +122,31 @@
       "cvxQday": "cvxQDAY",
       "rewardBalance": "報酬残高",
       "loading": "残高を読み込み中...",
-      "noData": "データがありません。アドレスを入力して追跡してください。"
+      "noData": "データがありません。アドレスを入力して追跡してください。",
+      "help": {
+        "cvxQday": "cvxQDAY は、コンベックスプールでステーキングされた QDAY トークンを表します。コンベックスステーキングでロックした QDAY の数量を表示します。",
+        "rewardBalance": "報酬残高は、すべてのステーキング活動からこのウォレットアドレスに累積された総報酬を表示します。"
+      }
     },
     "settings": {
       "title": "設定",
       "displaySettings": "表示設定",
       "hideZeroBalance": "ゼロ残高を非表示",
       "hideZeroBalanceDescription": "残高が0未満のトークンを非表示にする"
+    },
+    "docs": {
+      "staking": {
+        "title": "ステーキングドキュメント",
+        "content": "ステーキングドキュメント"
+      },
+      "abelBridge": {
+        "title": "Abel Bridge ドキュメント",
+        "content": "Abel Bridge ドキュメント"
+      },
+      "qdaySwap": {
+        "title": "QDAY Swap ドキュメント",
+        "content": "QDAY Swap ドキュメント"
+      }
     }
   },
   "common": {

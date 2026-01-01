@@ -3,12 +3,14 @@ import { useWalletStore } from './store/walletStore';
 import MainLayout from './components/Layout/MainLayout';
 import Dashboard from './pages/Dashboard';
 import AbelBridge from './pages/AbelBridge';
-import QDAYStaking from './pages/QDAYStaking';
-import ABELStaking from './pages/ABELStaking';
+import Staking from './pages/Staking';
 import QDAYSwap from './pages/QDAYSwap';
 import TrackAddress from './pages/TrackAddress';
 import WQDAYConversion from './pages/WQDAYConversion';
 import Settings from './pages/Settings';
+import DocsStaking from './pages/DocsStaking';
+import DocsAbelBridge from './pages/DocsAbelBridge';
+import DocsQDAYSwap from './pages/DocsQDAYSwap';
 
 function ProtectedDashboard() {
   const { isConnected } = useWalletStore();
@@ -23,12 +25,14 @@ function App() {
           <Route index element={<Navigate to="/abel-bridge" replace />} />
           <Route path="dashboard" element={<ProtectedDashboard />} />
           <Route path="abel-bridge" element={<AbelBridge />} />
-          <Route path="qday-staking" element={<QDAYStaking />} />
-          <Route path="abel-staking" element={<ABELStaking />} />
+          <Route path="staking" element={<Staking />} />
           <Route path="qday-swap" element={<QDAYSwap />} />
           <Route path="track-address" element={<TrackAddress />} />
           <Route path="wqday-conversion" element={<WQDAYConversion />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="docs/staking" element={<DocsStaking />} />
+          <Route path="docs/abel-bridge" element={<DocsAbelBridge />} />
+          <Route path="docs/qday-swap" element={<DocsQDAYSwap />} />
         </Route>
       </Routes>
     </BrowserRouter>
