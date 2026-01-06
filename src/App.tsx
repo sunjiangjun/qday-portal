@@ -8,9 +8,9 @@ import QDAYSwap from './pages/QDAYSwap';
 import TrackAddress from './pages/TrackAddress';
 import WQDAYConversion from './pages/WQDAYConversion';
 import Settings from './pages/Settings';
-import DocsStaking from './pages/DocsStaking';
-import DocsAbelBridge from './pages/DocsAbelBridge';
-import DocsQDAYSwap from './pages/DocsQDAYSwap';
+import DocsStaking from './pages/UserGuidesStaking';
+import DocsAbelBridge from './pages/UserGuidesAbelBridge';
+import DocsQDAYSwap from './pages/UserGuidesQDAYSwap';
 
 function ProtectedDashboard() {
   const { isConnected } = useWalletStore();
