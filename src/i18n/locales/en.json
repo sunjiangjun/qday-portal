@@ -1,7 +1,7 @@
 {
   "nav": {
     "dashboard": "Dashboard",
-    "abelBridge": "Abel Bridge",
+    "abelBridge": "(W)ABEL Conversion",
     "staking": "Staking",
     "qdaySwap": "QDAY Swap",
     "trackAddress": "Track Address",
@@ -10,7 +10,7 @@
     "docs": {
       "title": "User Guides",
       "staking": "Staking",
-      "abelBridge": "Abel Bridge",
+      "abelBridge": "(W)ABEL Conversion",
       "qdaySwap": "QDAY Swap"
     }
   },
@@ -26,6 +26,7 @@
       "title": "Dashboard",
       "welcome": "Welcome to Portal V2.1",
       "walletAddress": "Wallet Address",
+      "copyAddress": "Copy address",
       "balance": "Balance",
       "tokenBalances": "Token Balances",
       "qday": "QDAY",
@@ -38,7 +39,7 @@
       "rewardVault": "Reward Vault",
       "stakedAmount": "Staked Amount",
       "totalRewards": "Total Rewards",
-      "apy": "APY",
+      "apr": "APR",
       "pendingRewards": "Pending Rewards",
       "help": {
         "tokenBalances": "Token Balances shows the current balance of all your tokens in your wallet.",
@@ -49,13 +50,13 @@
         "usd8": "USD8 is a stablecoin pegged to USD.",
         "stakedAmount": "Staked Amount shows the total amount of tokens you have locked in the staking pool.",
         "totalRewards": "Total Rewards displays the cumulative rewards you have earned from staking.",
-        "apy": "APY (Annual Percentage Yield) shows the estimated annual return rate for staking.",
+        "apr": "APR (Annual Percentage Rate) is forward-looking and does not represent historical token returns.",
         "pendingRewards": "Pending Rewards are rewards that have been earned but not yet claimed.",
         "rewardVault": "Reward Vault contains the accumulated rewards available for distribution."
       }
     },
     "abelBridge": {
-      "title": "Abel Bridge",
+      "title": "(W)ABEL Conversion",
       "description": "Cross-chain bridge service"
     },
     "staking": {
@@ -140,8 +141,8 @@
         "content": "Staking Documentation"
       },
       "abelBridge": {
-        "title": "Abel Bridge Documentation",
-        "content": "Abel Bridge Documentation"
+        "title": "(W)ABEL Conversion Documentation",
+        "content": "(W)ABEL Conversion Documentation"
       },
       "qdaySwap": {
         "title": "QDAY Swap Documentation",

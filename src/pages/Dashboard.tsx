@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useWalletStore } from '../store/walletStore';
-import { Wallet, Coins, Lock, Gift, HelpCircle, X } from 'lucide-react';
+import { Wallet, Coins, Lock, Gift, HelpCircle, X, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 
 interface HelpDialogProps {
@@ -124,6 +124,30 @@ const Dashboard = () => {
   const { t } = useTranslation();
   const { address, isConnected } = useWalletStore();
   const [showTokenBalancesHelp, setShowTokenBalancesHelp] = useState(false);
+  const [addressCopied, setAddressCopied] = useState(false);
+
+  const handleCopyAddress = async () => {
+    if (!address) return;
+    try {
+      await navigator.clipboard.writeText(address);
+      setAddressCopied(true);
+      setTimeout(() => setAddressCopied(false), 2000);
+    } catch {
+      // Fallback for older browsers
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = address;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        setAddressCopied(true);
+        setTimeout(() => setAddressCopied(false), 2000);
+      } catch {
+        // Ignore copy failures
+      }
+    }
+  };
   const [showRewardVaultHelp, setShowRewardVaultHelp] = useState(false);
 
   // 模拟数据
@@ -131,21 +155,20 @@ const Dashboard = () => {
     qday: '1,234.5678',
     wqday: '567.8901',
     wabel: '890.1234',
-    cvxQday: '123.4567',
     usd8: '2,345.6789',
   };
 
   const abelStaking = {
     stakedAmount: '500.0000',
     totalRewards: '52.5000',
-    apy: '12.5%',
+    apr: '12.5%',
     pendingRewards: '5.2500',
   };
 
   const qdayStaking = {
     stakedAmount: '1,000.0000',
     totalRewards: '125.0000',
-    apy: '15.0%',
+    apr: '15.0%',
     pendingRewards: '12.5000',
   };
 
@@ -182,7 +205,21 @@ const Dashboard = () => {
             <p className="text-dark-400 text-xs lg:text-sm mb-1">
               {t('pages.dashboard.walletAddress')}
             </p>
-            <p className="text-white font-mono text-xs lg:text-sm break-all">{address}</p>
+            <div className="text-white font-mono text-xs lg:text-sm break-all">
+              {address}
+              <button
+                onClick={handleCopyAddress}
+                className="inline-flex align-middle p-1 ml-0.5 text-dark-400 hover:text-primary-400 hover:bg-dark-800 rounded-md transition-colors"
+                title={t('pages.dashboard.copyAddress')}
+                aria-label={t('pages.dashboard.copyAddress')}
+              >
+                {addressCopied ? (
+                  <Check className="w-4 h-4 lg:w-5 lg:h-5 text-green-500" />
+                ) : (
+                  <Copy className="w-4 h-4 lg:w-5 lg:h-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -251,13 +288,13 @@ const Dashboard = () => {
               t={t}
             />
             <FieldWithHelp
-              label={t('pages.dashboard.apy')}
+              label={t('pages.dashboard.apr')}
               value={
                 <p className="text-white font-mono text-sm lg:text-base font-bold">
-                  {abelStaking.apy}
+                  {abelStaking.apr}
                 </p>
               }
-              helpKey="apy"
+              helpKey="apr"
               t={t}
             />
             <div className="pt-2 border-t border-dark-700">
@@ -307,13 +344,13 @@ const Dashboard = () => {
               t={t}
             />
             <FieldWithHelp
-              label={t('pages.dashboard.apy')}
+              label={t('pages.dashboard.apr')}
               value={
                 <p className="text-white font-mono text-sm lg:text-base font-bold">
-                  {qdayStaking.apy}
+                  {qdayStaking.apr}
                 </p>
               }
-              helpKey="apy"
+              helpKey="apr"
               t={t}
             />
             <div className="pt-2 border-t border-dark-700">

@@ -1,7 +1,7 @@
 {
   "nav": {
     "dashboard": "ダッシュボード",
-    "abelBridge": "Abel Bridge",
+    "abelBridge": "(W)ABEL Conversion",
     "staking": "ステーキング",
     "qdaySwap": "QDAY Swap",
     "trackAddress": "アドレス追跡",
@@ -10,7 +10,7 @@
     "docs": {
       "title": "ユーザーガイド",
       "staking": "ステーキング",
-      "abelBridge": "Abel Bridge",
+      "abelBridge": "(W)ABEL Conversion",
       "qdaySwap": "QDAY Swap"
     }
   },
@@ -26,6 +26,7 @@
       "title": "ダッシュボード",
       "welcome": "Portal V2.1へようこそ",
       "walletAddress": "ウォレットアドレス",
+      "copyAddress": "アドレスをコピー",
       "balance": "残高",
       "tokenBalances": "トークン残高",
       "qday": "QDAY",
@@ -38,7 +39,7 @@
       "rewardVault": "報酬ボルト",
       "stakedAmount": "ステーキング数量",
       "totalRewards": "総報酬",
-      "apy": "年間利回り",
+      "apr": "年利",
       "pendingRewards": "未受け取り報酬",
       "help": {
         "tokenBalances": "トークン残高は、ウォレット内のすべてのトークンの現在の残高を表示します。",
@@ -49,13 +50,13 @@
         "usd8": "USD8 は米ドルにペッグされたステーブルコインです。",
         "stakedAmount": "ステーキング数量は、ステーキングプールにロックしたトークンの総量を表示します。",
         "totalRewards": "総報酬は、ステーキングから獲得した累積報酬を表示します。",
-        "apy": "年間利回り（APY）は、ステーキングの推定年間リターン率を表示します。",
+        "apr": "年利（APR）は前向き指標であり、過去のトークンリターンを表すものではありません。",
         "pendingRewards": "未受け取り報酬は、獲得したがまだ請求されていない報酬です。",
         "rewardVault": "報酬ボルトには、配布可能な累積報酬が含まれています。"
       }
     },
     "abelBridge": {
-      "title": "Abel Bridge",
+      "title": "(W)ABEL Conversion",
       "description": "クロスチェーンブリッジサービス"
     },
     "staking": {
@@ -140,8 +141,8 @@
         "content": "ステーキングドキュメント"
       },
       "abelBridge": {
-        "title": "Abel Bridge ドキュメント",
-        "content": "Abel Bridge ドキュメント"
+        "title": "(W)ABEL Conversion ドキュメント",
+        "content": "(W)ABEL Conversion ドキュメント"
       },
       "qdaySwap": {
         "title": "QDAY Swap ドキュメント",

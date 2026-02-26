@@ -45,11 +45,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       label: t('nav.trackAddress'),
     },
     {
-      path: '/abel-bridge',
-      icon: GitBranch,
-      label: t('nav.abelBridge'),
-    },
-    {
       path: '/staking',
       icon: Coins,
       label: t('nav.staking'),
@@ -58,6 +53,11 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       path: '/qday-swap',
       icon: ArrowLeftRight,
       label: t('nav.qdaySwap'),
+    },
+    {
+      path: '/abel-bridge',
+      icon: GitBranch,
+      label: t('nav.abelBridge'),
     },
     {
       path: '/wqday-conversion',
@@ -72,12 +72,12 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       label: t('nav.docs.staking'),
     },
     {
-      path: '/docs/abel-bridge',
-      label: t('nav.docs.abelBridge'),
-    },
-    {
       path: '/docs/qday-swap',
       label: t('nav.docs.qdaySwap'),
+    },
+    {
+      path: '/docs/abel-bridge',
+      label: t('nav.docs.abelBridge'),
     },
   ];
 

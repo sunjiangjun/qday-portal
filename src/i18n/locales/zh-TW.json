@@ -1,7 +1,7 @@
 {
   "nav": {
     "dashboard": "儀表板",
-    "abelBridge": "Abel Bridge",
+    "abelBridge": "(W)ABEL Conversion",
     "staking": "質押",
     "qdaySwap": "QDAY Swap",
     "trackAddress": "追蹤地址",
@@ -10,7 +10,7 @@
     "docs": {
       "title": "使用指南",
       "staking": "質押",
-      "abelBridge": "Abel Bridge",
+      "abelBridge": "(W)ABEL Conversion",
       "qdaySwap": "QDAY Swap"
     }
   },
@@ -26,6 +26,7 @@
       "title": "儀表板",
       "welcome": "歡迎使用 Portal V2.1",
       "walletAddress": "錢包地址",
+      "copyAddress": "複製地址",
       "balance": "餘額",
       "tokenBalances": "代幣餘額",
       "qday": "QDAY",
@@ -38,7 +39,7 @@
       "rewardVault": "獎勵金庫",
       "stakedAmount": "質押數量",
       "totalRewards": "總獎勵",
-      "apy": "年化收益率",
+      "apr": "年利率",
       "pendingRewards": "待領取獎勵",
       "help": {
         "tokenBalances": "代幣餘額顯示您錢包中所有代幣的當前餘額。",
@@ -49,13 +50,13 @@
         "usd8": "USD8 是與美元掛鉤的穩定幣。",
         "stakedAmount": "質押數量顯示您鎖定在質押池中的代幣總量。",
         "totalRewards": "總獎勵顯示您從質押中獲得的累計獎勵。",
-        "apy": "年化收益率（APY）顯示質押的預估年回報率。",
+        "apr": "年利率（APR）為前瞻性指標，不代表歷史代幣收益。",
         "pendingRewards": "待領取獎勵是已獲得但尚未領取的獎勵。",
         "rewardVault": "獎勵金庫包含可供分配的累積獎勵。"
       }
     },
     "abelBridge": {
-      "title": "Abel Bridge",
+      "title": "(W)ABEL Conversion",
       "description": "跨鏈橋接服務"
     },
     "staking": {
@@ -140,8 +141,8 @@
         "content": "質押文件"
       },
       "abelBridge": {
-        "title": "Abel Bridge 文件",
-        "content": "Abel Bridge 文件"
+        "title": "(W)ABEL Conversion 文件",
+        "content": "(W)ABEL Conversion 文件"
       },
       "qdaySwap": {
         "title": "QDAY Swap 文件",

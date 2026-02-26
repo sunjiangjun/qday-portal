@@ -6,7 +6,7 @@ A modern Web3 portal application with wallet connectivity, staking, swapping, an
 
 - 🔐 **Wallet Connection**: Connect with MetaMask or other Web3 wallets
 - 📊 **Dashboard**: View wallet information and balances (requires wallet connection)
-- 🌉 **Abel Bridge**: Cross-chain bridge service
+- 🌉 **(W)ABEL Conversion**: Cross-chain bridge service
 - 💰 **Staking**: QDAY and ABEL token staking
 - 🔄 **Swap**: QDAY token swapping
 - 🔍 **Track Address**: Track wallet address activity

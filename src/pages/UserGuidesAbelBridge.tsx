@@ -21,7 +21,7 @@ const DocsAbelBridge = () => {
             {t('pages.docs.abelBridge.content')}
           </h2>
           <p className="text-dark-300 leading-relaxed">
-            Abel Bridge documentation content will be displayed here.
+            (W)ABEL Conversion documentation content will be displayed here.
           </p>
         </div>
       </div>
